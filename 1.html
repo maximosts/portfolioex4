@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cycling Text Color</title>
+    <style>
+        #colorText {
+            color: black; /* Initial color */
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="colorText">Hello World!</div>
+    <script>
+        var colors = ['black', 'blue', 'green']; // Array of colors
+        var currentColorIndex = 0; // Start with the first color
+
+        function changeColor() {
+            currentColorIndex = (currentColorIndex + 1) % colors.length; // Cycle through the array
+            document.getElementById('colorText').style.color = colors[currentColorIndex]; // Apply the new color
+        }
+
+        // Change color every second
+        setInterval(changeColor, 1000);
+    </script>
+</body>
+</html>

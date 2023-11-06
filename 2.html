@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2 Table with jQuery</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .highlighted {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Office</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Smith</td>
+                <td>jsmith@sar.com</td>
+                <td>+30 210 1234567</td>
+                <td>PN 514</td>
+            </tr>
+            <tr>
+                <td>Maria</td>
+                <td>Carras</td>
+                <td>mearras@jsu.edu</td>
+                <td>+30 210 7654321</td>
+                <td>PM 413</td>
+            </tr>
+            <tr>
+                <td>Helen</td>
+                <td>Antypas</td>
+                <td>hantypas@bdg.com</td>
+                <td>+30 2310 654321</td>
+                <td>PK 614</td>
+            </tr>
+            <tr>
+                <td>Afroditi</td>
+                <td>Makri</td>
+                <td>amakri@hughes.edu</td>
+                <td>+30 2310 123456</td>
+                <td>PJ 717</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="next-button">Next</button>
+    <button id="clear-button">Clear</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        var currentIndex = -1;
+        var rows = $('#data-table tbody tr');
+
+        $('#next-button').click(function() {
+            // Remove highlighting from all rows
+            rows.removeClass('highlighted');
+            // Move to the next row and highlight it
+            currentIndex = (currentIndex + 1) % rows.length;
+            $(rows[currentIndex]).addClass('highlighted');
+        });
+
+        $('#clear-button').click(function() {
+            // Clear all highlights
+            rows.removeClass('highlighted');
+            currentIndex = -1;
+        });
+    });
+    </script>
+
+</body>
+</html>

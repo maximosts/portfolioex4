@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Checker</title>
+    <style>
+        .sunday {
+            color: green;
+        }
+        .not-sunday {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="message"></div>
+
+    <script>
+        const today = new Date();
+        const dayOfWeek = today.getDay(); // Sunday - Saturday : 0 - 6
+        const messageElement = document.getElementById('message');
+
+        if(dayOfWeek === 0) { // 0 corresponds to Sunday
+            messageElement.textContent = "It is Sunday!";
+            messageElement.className = 'sunday';
+        } else {
+            messageElement.textContent = "It is not Sunday.";
+            messageElement.className = 'not-sunday';
+        }
+    </script>
+
+</body>
+</html>
